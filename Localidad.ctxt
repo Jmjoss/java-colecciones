@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Localidad
-comment0.text=\n\ Clase\ Localidad\ que\ permite\ crear\ objetos\ de\ este\ tipo.\n\ \n\ @author\ jose\ candia\ \n\ @version\ \n
+comment0.text=\r\n\ Clase\ Localidad\ que\ permite\ crear\ objetos\ de\ este\ tipo.\r\n\ \r\n\ @author\ jose\ candia\ \r\n\ @version\ \r\n
 comment1.params=p_nombre\ p_provincia
 comment1.target=Localidad(java.lang.String,\ java.lang.String)
 comment2.params=p_nombre
@@ -13,5 +13,5 @@ comment5.params=
 comment5.target=java.lang.String\ getProvincia()
 comment6.params=
 comment6.target=java.lang.String\ mostrar()
-comment6.text=\n\ Metodo\ que\ concatena\ y\ retorna\ los\ datos\ de\ la\ localidad.\n\ @return\ datos\ de\ localidad\ \n
+comment6.text=\r\n\ Metodo\ que\ concatena\ y\ retorna\ los\ datos\ de\ la\ localidad.\r\n\ @return\ datos\ de\ localidad\ \r\n
 numComments=7
