@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=CuentaBancaria
+comment0.text=\r\n\ Clase\ CuentaBancaria\ que\ permite\ crear\ objetos\ de\ este\ tipo.\r\n\ \r\n\ @author\ jose\ candia\r\n\ @version\ \r\n
+comment1.params=p_nroCuenta
+comment1.target=void\ setNroCuenta(int)
+comment2.params=p_saldo
+comment2.target=void\ setSaldo(double)
+comment3.params=
+comment3.target=int\ getNroCuenta()
+comment4.params=
+comment4.target=double\ getSaldo()
+comment5.params=p_importe
+comment5.target=double\ depositar(double)
+comment5.text=\r\n\ Metodo\ que\ deposita\ un\ importe\ a\ la\ cuenta\ y\ retorna\ el\ saldo\r\n\ @param\ importe\ a\ depositar\r\n\ @return\ saldo\r\n
+comment6.params=p_importe
+comment6.target=double\ extraer(double)
+comment6.text=\r\n\ Metodo\ que\ extrae\ un\ importe\ de\ la\ cuente\r\n\ @param\ importe\ a\ extraer\r\n\ @return\ saldo\r\n
+comment7.params=
+comment7.target=void\ mostrar()
+comment7.text=\r\n\ Metodo\ que\ muestra\ por\ pantalla\ los\ datos\ de\ la\ cuenta\ bancaria\r\n
+comment8.params=
+comment8.target=java.lang.String\ toString()
+comment8.text=\r\n\ Metodo\ que\ concatena\ los\ datos\ de\ la\ cuenta\ bancaria\r\n\ @return\ datos\ de\ la\ cuenta\ bancaria\r\n
+numComments=9
