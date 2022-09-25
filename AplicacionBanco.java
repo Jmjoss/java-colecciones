@@ -17,5 +17,7 @@ public class AplicacionBanco
         banco.agregarEmpleado(empleado);
         banco.agregarEmpleado(empleado);
         banco.mostrar();
+        banco.quitarEmpleado(empleado);
+        banco.mostrar();
     }
 }
