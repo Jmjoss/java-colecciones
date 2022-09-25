@@ -86,13 +86,13 @@ public class Banco
     
     public void listarSueldos() {
         for(Empleado empleado : empleados) {
-             System.out.format(empleado.getCuil() + "  " + empleado.apeYnom() + " ------------------------------- %.2f", empleado.sueldoNeto() + "\n");   
+             System.out.println(empleado.getCuil() + "  " + empleado.apeYnom() + " ------------------------------- "+ empleado.sueldoNeto());   
         }
     }
     
     public void mostrar() {
         System.out.println("Banco: "+ this.getNombre() + "    "+ " Sucursal: "+ this.getNroSucursal());
-        System.out.println(this.getLocalidad().mostrar());
+        System.out.println(this.getLocalidad().mostrar() + "\n");
         this.listarSueldos();
         System.out.println("Total a pagar: ------------------------------------------------------"+ this.sueldosAPagar());
     }
