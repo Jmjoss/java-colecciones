@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Punto
+comment1.params=
+comment1.target=Punto()
+comment10.params=
+comment10.target=java.lang.String\ coordenadas()
+comment10.text=\n\ Metodo\ que\ retorna\ los\ valores\ de\ x\ e\ y.\n\ @return\ valores\ de\ x\ e\ y\n
+comment2.params=p_x\ p_y
+comment2.target=Punto(double,\ double)
+comment3.params=
+comment3.target=double\ getX()
+comment4.params=
+comment4.target=double\ getY()
+comment5.params=p_x
+comment5.target=void\ setX(double)
+comment6.params=p_y
+comment6.target=void\ setY(double)
+comment7.params=p_ptoDistante
+comment7.target=double\ distanciaA(Punto)
+comment7.text=\n\ Metodo\ que\ calcula\ distancia\ desde\ el\ mismo,\ hasta\ otro\ recibido\ como\ parametro\n\ @param\ el\ otro\ punto\ para\ calcular\ la\ distancia\n\ @return\ \ la\ distancia\n
+comment8.params=p_dx\ p_dy
+comment8.target=void\ desplazar(double,\ double)
+comment8.text=\n\ Metodo\ que\ desplaza\ los\ valores\ x\ e\ y.\n\ @param\ los\ valores\ de\ x\ e\ y\n
+comment9.params=
+comment9.target=void\ mostrar()
+comment9.text=\n\ Metodo\ que\ muestra\ por\ pantalla\ los\ valores\ x\ e\ y\n
+numComments=11
