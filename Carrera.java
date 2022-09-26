@@ -5,29 +5,39 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
+
+import java.util.*;
+
 public class Carrera
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Carrera
-     */
-    public Carrera()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+     public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        char sigue = 'S';
+        int lu;
+        String nombre;
+        String apellido;
+        Curso curso = new Curso("Poo");
+        
+        while(sigue != 'N') {
+            System.out.println("Ingrese los datos del alumno: ");
+            System.out.println("Ingrese el lu: ");
+            lu = teclado.nextInt();
+            teclado.nextLine();
+            System.out.println("Ingrese el nombre: ");
+            nombre = teclado.nextLine();
+            System.out.println("Ingrese el apellido: ");
+            apellido = teclado.nextLine();
+            Alumno alumno = new Alumno(lu, nombre, apellido);
+            curso.inscribirAlumno(alumno);
+            System.out.println("Desea Inscribir otro alumno? S/N");
+            sigue = (teclado.next()).charAt(0);
+        }             
+        curso.mostrarInscriptos();
+        
+        lu = teclado.nextInt();
+        
+        curso.quitarAlumno(lu);
+        
+        curso.mostrarInscriptos();
     }
 }

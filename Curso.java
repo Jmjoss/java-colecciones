@@ -48,7 +48,7 @@ public class Curso
     }
     
     public Alumno quitarAlumno(int p_lu) {
-       return this.getAlumnos().remove(p_lu);
+       return this.getAlumnos().remove(new Integer(p_lu));
     } 
     
     public int cantDeAlumnos() {
@@ -57,7 +57,7 @@ public class Curso
     
         
     public boolean estaInscripto(int p_lu) {
-         return this.getAlumnos().containsKey(p_lu);
+         return this.getAlumnos().containsKey(new Integer(p_lu));
     }
     
     public boolean estaInscripto(Alumno p_alumno) {
@@ -65,7 +65,7 @@ public class Curso
     }
     
     public Alumno buscarAlumno(int p_lu) {
-        return this.getAlumnos().get(p_lu);
+        return this.getAlumnos().get(new Integer(p_lu));
     } 
     
     public void imprimirPromedioDelAlumno(int p_lu) {
@@ -74,7 +74,6 @@ public class Curso
     }
     
     public void mostrarInscriptos() {
-        System.out.println("Cantidad de Inscriptos: "+ this.cantDeAlumnos());
         for(Map.Entry <Integer, Alumno> alumno : alumnos.entrySet()) {
             System.out.println(alumno.getValue().getLu() + "  "+ alumno.getValue().nomYape());
         }

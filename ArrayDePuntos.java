@@ -27,6 +27,7 @@ public class ArrayDePuntos
             puntos[i] = new Punto(x, y);
         }
         
+        
         for(int i = 0; i < puntos.length; i++) {
             puntos[i].mostrar();
         }
