@@ -5,19 +5,55 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
+import java.util.*;
+
 public class AplicacionBanco
 {
     public static void main(String[] args) {
-        Localidad localidad = new Localidad("Empedrado","Corrientes");
-        Empleado empleado = new Empleado(323232303, "candia", "jose", 200000, 2018);
-        Banco banco = new Banco("Santander", localidad, 23, empleado);
-        banco.agregarEmpleado(empleado);
-        banco.agregarEmpleado(empleado);
-        banco.agregarEmpleado(empleado);
-        banco.agregarEmpleado(empleado);
-        banco.agregarEmpleado(empleado);
-        banco.mostrar();
-        banco.quitarEmpleado(empleado);
+        Scanner teclado = new Scanner(System.in);
+        char sigue = 'S';
+        long cuil;
+        String apellido;
+        String nombre;
+        double sueldo;
+        int anio;
+        String nombreBanco;
+        int nroSucursal;
+        
+        ArrayList <Empleado> empleados = new ArrayList <Empleado> ();
+
+        
+        Localidad localidad = new Localidad("Corrientes","Corrientes");
+        
+        
+        
+        
+        
+        while(sigue != 'N') {
+            System.out.println("Ingrese los datos del empleado: ");
+            System.out.println("Ingrese el cuil: ");
+            cuil = teclado.nextLong();
+            teclado.nextLine();
+            System.out.println("Ingrese el apellido: ");
+            apellido = teclado.nextLine();
+            System.out.println("Ingrese el nombre: ");
+            nombre = teclado.nextLine();
+            System.out.println("Ingrese el sueldo: ");
+            sueldo = teclado.nextDouble();
+            teclado.nextLine();
+            System.out.println("Ingrese el año de ingreso: ");
+            anio = teclado.nextInt();
+            teclado.nextLine();
+            
+            Empleado empleado = new Empleado(cuil, apellido, nombre, sueldo, anio);
+            empleados.add(empleado);
+            
+            System.out.println("Desea Inscribir otro empleado? S/N");
+            sigue = (teclado.next()).charAt(0);
+        }           
+        
+        Banco banco = new Banco("Santander", localidad, 23, empleados);
+    
         banco.mostrar();
     }
 }

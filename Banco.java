@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Banco here.
+ * Clase Banco que permite crear objetos de este tipo.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author jose candia
+ * @version 
  */
 import java.util.*;
 
