@@ -19,14 +19,13 @@ public class AplicacionBanco
         int anio;
         String nombreBanco;
         int nroSucursal;
-        
         ArrayList <Empleado> empleados = new ArrayList <Empleado> ();
 
         
         Localidad localidad = new Localidad("Corrientes","Corrientes");
         
         
-        
+        Banco banco = new Banco("Santander", localidad, 23, empleados);
         
         
         while(sigue != 'N') {
@@ -46,14 +45,12 @@ public class AplicacionBanco
             teclado.nextLine();
             
             Empleado empleado = new Empleado(cuil, apellido, nombre, sueldo, anio);
-            empleados.add(empleado);
+            banco.agregarEmpleado(empleado);
             
             System.out.println("Desea Inscribir otro empleado? S/N");
             sigue = (teclado.next()).charAt(0);
         }           
-        
-        Banco banco = new Banco("Santander", localidad, 23, empleados);
-    
+
         banco.mostrar();
     }
 }

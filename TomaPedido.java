@@ -63,7 +63,7 @@ public class TomaPedido
                     
                     pedidos.agregarProducto(producto);
                     
-                    System.out.println("Desea Inscribir otro empleado? S/N");
+                    System.out.println("Desea agregar otro producto? S/N");
                     sigue = (teclado.next()).charAt(0);
             }           
       
