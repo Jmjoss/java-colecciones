@@ -10,11 +10,15 @@ import java.util.*;
 public class TomaPedido
 {
     public static void main(String[] args) {
+        char sigue = 'S';
         Scanner teclado = new Scanner(System.in);
         Calendar fechaHoy = new GregorianCalendar();
         ArrayList <Producto> productos = new ArrayList <Producto> ();
-        Laboratorio lab = new Laboratorio("laboratorio S.A", "Av maipu 1245", "343434334");
-        Producto producto = new Producto(1212, "higiene", "colino", 120, lab);
+        int codigoProducto;
+        String rubroProducto;
+        String descripcionProducto;
+        double costoProducto;
+        
         
         System.out.println("Datos del Cliente: ");
         System.out.println("DNI: ");
@@ -28,7 +32,7 @@ public class TomaPedido
         double importeCliente = teclado.nextDouble();
         teclado.nextLine();
         
-        Cliente cliente1 = new Cliente(dniCliente, nombreCliente, apellidoCliente, importeCliente);
+        Cliente cliente = new Cliente(dniCliente, nombreCliente, apellidoCliente, importeCliente);
         
         System.out.println("Datos del laboratorio: ");
         System.out.println("Nombre: ");
@@ -37,6 +41,8 @@ public class TomaPedido
         String direccionLab = teclado.nextLine();
         System.out.println("Telefono: ");
         String telefonoLab = teclado.nextLine();
+        
+        Laboratorio lab = new Laboratorio(nombreLab, direccionLab, "343434334");
         
         System.out.println("Datos del Producto: ");
         System.out.println("Codigo: ");
@@ -50,46 +56,30 @@ public class TomaPedido
         double costoProducto = teclado.nextDouble();
         teclado.nextLine();
         
+        Pedido pedidos = new Pedido(fechaHoy, cliente, productos);
         
-        int op = 0; 
-        do {
-            System.out.println("Menu");
-            System.out.println("1.Agregar Producto   2.Salir ");
-            op = teclado.nextInt();
-            teclado.nextLine();
-            switch(op) {
-                case 1: System.out.println("Datos del Producto: ");
-                        System.out.println("Codigo: ");
-                        codigoProducto = teclado.nextInt();
-                        teclado.nextLine();
-                        System.out.println("Rubro: ");
-                        rubroProducto = teclado.nextLine();
-                        System.out.println("Descripcion: ");
-                        descripcionProducto = teclado.nextLine();
-                        System.out.println("Costo por unidad: ");
-                        costoProducto = teclado.nextDouble();
-                        teclado.nextLine();
-                        productos.add(new Producto(codigoProducto, rubroProducto, descripcionProducto, costoProducto, lab));
-                    break;
-            }
-        }while(op != 2);
-        
-        
-        
-        Pedido pedido1 = new Pedido(fechaHoy, cliente1, producto);
-        pedido1.agregarProducto(producto);
-        pedido1.agregarProducto(producto);
-        pedido1.agregarProducto(producto);
-        pedido1.agregarProducto(producto);
-        pedido1.agregarProducto(producto);
-        pedido1.agregarProducto(producto);
-        pedido1.agregarProducto(producto);
-        pedido1.agregarProducto(producto);
-        System.out.println(producto);
-        System.out.println(pedido1.getCliente());
-        System.out.println(pedido1.getProductos());
-        System.out.println(pedido1.quitarProducto(producto));
-        System.out.println(pedido1.getProductos());
-        pedido1.mostrarPedido();
+                while(sigue != 'N') {
+                    System.out.println("Datos del Producto: ");
+                    System.out.println("Codigo: ");
+                    codigoProducto = teclado.nextInt();
+                    teclado.nextLine();
+                    System.out.println("Rubro: ");
+                    rubroProducto = teclado.nextLine();
+                    System.out.println("Descripcion: ");
+                    descripcionProducto = teclado.nextLine();
+                    System.out.println("Costo por unidad: ");
+                    costoProducto = teclado.nextDouble();
+                    teclado.nextLine();
+                    
+                    Producto producto = new Producto(codigoProducto, rubroProducto, descripcionProducto, costoProducto, lab);
+                    
+                    pedidos.agregarProducto(producto);
+                    
+                    
+                    System.out.println("Desea Inscribir otro empleado? S/N");
+                    sigue = (teclado.next()).charAt(0);
+            }           
+      
+        pedidos.mostrarPedido();
     }
 }
