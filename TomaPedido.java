@@ -44,18 +44,6 @@ public class TomaPedido
         
         Laboratorio lab = new Laboratorio(nombreLab, direccionLab, "343434334");
         
-        System.out.println("Datos del Producto: ");
-        System.out.println("Codigo: ");
-        int codigoProducto = teclado.nextInt();
-        teclado.nextLine();
-        System.out.println("Rubro: ");
-        String rubroProducto = teclado.nextLine();
-        System.out.println("Descripcion: ");
-        String descripcionProducto = teclado.nextLine();
-        System.out.println("Costo por unidad: ");
-        double costoProducto = teclado.nextDouble();
-        teclado.nextLine();
-        
         Pedido pedidos = new Pedido(fechaHoy, cliente, productos);
         
                 while(sigue != 'N') {
@@ -74,7 +62,6 @@ public class TomaPedido
                     Producto producto = new Producto(codigoProducto, rubroProducto, descripcionProducto, costoProducto, lab);
                     
                     pedidos.agregarProducto(producto);
-                    
                     
                     System.out.println("Desea Inscribir otro empleado? S/N");
                     sigue = (teclado.next()).charAt(0);

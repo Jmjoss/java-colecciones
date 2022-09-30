@@ -81,13 +81,13 @@ public class Pedido
     
     public void mostrarPedido() {
         System.out.format("***** Detalle del pedido ****** Fecha: %te de %tB de %tY%n", this.getFecha(), this.getFecha(), this.getFecha());
-        System.out.println("Producto    Precio de Lista    Precio de Contado");
-        System.out.println("--------------------------------------------------------------------");
+        System.out.format("Producto    \tPrecio de Lista    \tPrecio de Contado \n");
+        System.out.println("-------------------------------------------------------------------- ");
         for(Producto producto : productos) {
-            System.out.println(producto.getDescripcion() + "       "+ producto.precioLista() + "             " + producto.precioContado());
+            System.out.format(producto.getDescripcion() + "       \t"+ producto.precioLista() + "             \t" + producto.precioContado() + "\n");
         }
         System.out.println("--------------------------------------------------------------------");
-        System.out.println("*** Total: -- "+  this.totalFinanciado() + "           "+ this.totalAlContado());
+        System.out.format("*** Total: -- \t"+  this.totalFinanciado() + "           \t"+ this.totalAlContado());
     }
     
 }
