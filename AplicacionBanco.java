@@ -17,16 +17,23 @@ public class AplicacionBanco
         String nombre;
         double sueldo;
         int anio;
-        String nombreBanco;
-        int nroSucursal;
         ArrayList <Empleado> empleados = new ArrayList <Empleado> ();
-
         
-        Localidad localidad = new Localidad("Corrientes","Corrientes");
+        System.out.println("Ingrese la localidad: ");
+        String nombreLocalidad = teclado.nextLine();
+        System.out.println("Ingrese la provincia: ");
+        String nombreProvincia = teclado.nextLine();
         
         
-        Banco banco = new Banco("Santander", localidad, 23, empleados);
+        Localidad localidad = new Localidad(nombreLocalidad, nombreProvincia);
         
+        System.out.println("Ingrese el nombre del banco: ");
+        String nombreBanco = teclado.nextLine();
+        System.out.println("Ingrese el numero de sucursal: ");
+        int nroSucursal = teclado.nextInt();
+        teclado.nextLine();
+        
+        Banco banco = new Banco(nombreBanco, localidad, nroSucursal, empleados);
         
         while(sigue != 'N') {
             System.out.println("Ingrese los datos del empleado: ");
