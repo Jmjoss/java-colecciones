@@ -16,6 +16,8 @@ public class Carrera
         int lu;
         String nombre;
         String apellido;
+        double nota1;
+        double nota2;
         
         System.out.println("Ingrese el nombre del curso: ");
         String nombreCurso = teclado.nextLine();
@@ -30,9 +32,16 @@ public class Carrera
             nombre = teclado.nextLine();
             System.out.println("Ingrese el apellido: ");
             apellido = teclado.nextLine();
+            System.out.println("Ingrese la nota 1: ");
+            nota1 = teclado.nextDouble();
+            teclado.nextLine();
+            System.out.println("Ingrese la nota 2:  ");
+            nota2 = teclado.nextDouble();
+            teclado.nextLine();
             
             Alumno alumno = new Alumno(lu, nombre, apellido);
-            
+            alumno.setNota1(nota1);
+            alumno.setNota1(nota2);
             curso.inscribirAlumno(alumno);
             
             System.out.println("Desea Inscribir otro alumno? S/N");
@@ -40,7 +49,7 @@ public class Carrera
         }
         
         curso.mostrarInscriptos();
-        System.out.println("Cantidad de alumnos inscriptos: "+ curso.cantDeAlumnos());
+    
         
         System.out.println("Desea eliminar un alumno? S/N");
         sigue = (teclado.next()).charAt(0);
@@ -52,12 +61,27 @@ public class Carrera
                 
                 curso.quitarAlumno(lu);
                 curso.mostrarInscriptos();
-                System.out.println("Cantidad de alumnos inscriptos: "+ curso.cantDeAlumnos());
+                
                 
                 System.out.println("Desea eliminar otro alumno? S/N");
                 sigue = (teclado.next()).charAt(0);
             }
         }
-        System.out.println("Cantidad de alumnos inscriptos: "+ curso.cantDeAlumnos());
+        
+        System.out.println("Desea Buscar un alumno? S/N");
+        sigue = (teclado.next()).charAt(0);
+        
+        if(sigue == 'S') {
+            while(sigue != 'N') {
+                System.out.println("Ingrese el lu del alumno: ");    
+                lu = teclado.nextInt();
+                
+                curso.imprimirPromedioDelAlumno(lu);
+                
+                
+                System.out.println("Desea Buscar otro alumno? S/N");
+                sigue = (teclado.next()).charAt(0);
+            }
+        }
     }
 }
