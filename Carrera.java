@@ -41,7 +41,7 @@ public class Carrera
             
             Alumno alumno = new Alumno(lu, nombre, apellido);
             alumno.setNota1(nota1);
-            alumno.setNota1(nota2);
+            alumno.setNota2(nota2);
             curso.inscribirAlumno(alumno);
             
             System.out.println("Desea Inscribir otro alumno? S/N");
