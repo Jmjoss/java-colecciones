@@ -69,11 +69,12 @@ public class Curso
     } 
     
     public void imprimirPromedioDelAlumno(int p_lu) {
-        Alumno auxAlumno = this.getAlumnos().get(p_lu);
-        System.out.println("Promedio del alumno: "+ auxAlumno.promedio());
+        Alumno auxAlumno = this.getAlumnos().get(new Integer(p_lu));
+        auxAlumno.mostrar();
     }
     
     public void mostrarInscriptos() {
+        System.out.println("Cantidad de Inscriptos: "+ this.cantDeAlumnos());
         for(Map.Entry <Integer, Alumno> alumno : alumnos.entrySet()) {
             System.out.println(alumno.getValue().getLu() + "  "+ alumno.getValue().nomYape());
         }
