@@ -15,7 +15,7 @@ public class Curso
    
     public Curso(String p_nombre) {
         this.setNombre(p_nombre);
-        this.setAlumnos(new HashMap());
+        this.setAlumnos(new HashMap <Integer, Alumno> ());
     }
    
     public Curso(String p_nombre, HashMap <Integer, Alumno> p_alumnos) {
@@ -70,7 +70,13 @@ public class Curso
     
     public void imprimirPromedioDelAlumno(int p_lu) {
         Alumno auxAlumno = this.getAlumnos().get(new Integer(p_lu));
-        auxAlumno.mostrar();
+        if(auxAlumno == null) {
+            System.out.println("El alumno no se encuentra");
+        }else {
+            auxAlumno.mostrar();
+        }
+        
+        
     }
     
     public void mostrarInscriptos() {

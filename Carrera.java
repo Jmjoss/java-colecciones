@@ -46,6 +46,7 @@ public class Carrera
             
             System.out.println("Desea Inscribir otro alumno? S/N");
             sigue = (teclado.next()).charAt(0);
+            System.out.println("\n");
         }
         
         curso.mostrarInscriptos();
@@ -65,6 +66,7 @@ public class Carrera
                 
                 System.out.println("Desea eliminar otro alumno? S/N");
                 sigue = (teclado.next()).charAt(0);
+                System.out.println("\n");
             }
         }
         
@@ -81,6 +83,7 @@ public class Carrera
                 
                 System.out.println("Desea Buscar otro alumno? S/N");
                 sigue = (teclado.next()).charAt(0);
+                System.out.println("\n");
             }
         }
     }
