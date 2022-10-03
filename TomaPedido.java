@@ -66,9 +66,10 @@ public class TomaPedido
                     teclado.nextLine();
                     System.out.println("Ingrese la cantidad: ");
                     cantidad = teclado.nextInt();
+                    
                     Producto producto = new Producto(codigoProducto, rubroProducto, descripcionProducto, costoProducto, lab);
+                    
                     for(int i = 0; i < cantidad; i++) {
-            
                         pedidos.agregarProducto(producto);
                     }   
                     
