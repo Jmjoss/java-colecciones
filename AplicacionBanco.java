@@ -17,6 +17,9 @@ public class AplicacionBanco
         String nombre;
         double sueldo;
         int anio;
+        int dni;
+        int mes;
+        int dia;
         ArrayList <Empleado> empleados = new ArrayList <Empleado> ();
         
         System.out.println("Ingrese la localidad: ");
@@ -59,5 +62,7 @@ public class AplicacionBanco
         }           
 
         banco.mostrar();
+        
+        
     }
 }

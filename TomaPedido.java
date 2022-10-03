@@ -10,6 +10,7 @@ import java.util.*;
 public class TomaPedido
 {
     public static void main(String[] args) {
+        int index;
         char sigue = 'S';
         Scanner teclado = new Scanner(System.in);
         Calendar fechaHoy = new GregorianCalendar();
@@ -18,7 +19,8 @@ public class TomaPedido
         String rubroProducto;
         String descripcionProducto;
         double costoProducto;
-        
+        int cantidad;
+        int op = -1;
         
         System.out.println("Datos del Cliente: ");
         System.out.println("DNI: ");
@@ -46,7 +48,11 @@ public class TomaPedido
         
         Pedido pedidos = new Pedido(fechaHoy, cliente, productos);
         
-                while(sigue != 'N') {
+        while(op != 0) {
+            System.out.println("\n1.Agregar un producto  \n2.listar pedido  \n3.Eliminar Producto");
+            op = teclado.nextInt();
+            if(op == 1) {
+                    while(sigue != 'N') {
                     System.out.println("Datos del Producto: ");
                     System.out.println("Codigo: ");
                     codigoProducto = teclado.nextInt();
@@ -58,15 +64,40 @@ public class TomaPedido
                     System.out.println("Costo por unidad: ");
                     costoProducto = teclado.nextDouble();
                     teclado.nextLine();
-                    
+                    System.out.println("Ingrese la cantidad: ");
+                    cantidad = teclado.nextInt();
                     Producto producto = new Producto(codigoProducto, rubroProducto, descripcionProducto, costoProducto, lab);
-                    
-                    pedidos.agregarProducto(producto);
+                    for(int i = 0; i < cantidad; i++) {
+            
+                        pedidos.agregarProducto(producto);
+                    }   
                     
                     System.out.println("Desea agregar otro producto? S/N");
                     sigue = (teclado.next()).charAt(0);
+                }
             }           
       
-        pedidos.mostrarPedido();
+            if(op == 3) {
+                sigue = 'S';
+                while(sigue != 'N') {
+                System.out.println("\nIngrese la posicion del elemento a eliminar");
+                index = teclado.nextInt();
+                teclado.nextLine();
+                
+                pedidos.quitarProducto(productos.get(index-1));
+                
+                pedidos.mostrarPedido();
+                System.out.println("\nDesea eliminar otro producto? S/N");
+                sigue = (teclado.next()).charAt(0);
+                }
+        
+            }  
+            
+            if(op == 2) {
+                pedidos.mostrarPedido();
+            } 
+        
+        }
+    
     }
-}
+}  

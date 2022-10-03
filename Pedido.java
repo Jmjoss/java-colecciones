@@ -60,7 +60,11 @@ public class Pedido
     }
     
     public boolean quitarProducto(Producto p_producto) {
-        return this.productos.remove(p_producto);
+        if(this.getProductos().size() >= 1) {
+            return this.productos.remove(p_producto);
+        }else {
+            return false;   
+        }
     }
     
     public double totalAlContado() {
