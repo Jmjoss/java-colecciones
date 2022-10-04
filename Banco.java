@@ -109,7 +109,7 @@ public class Banco
     
     public void listarSueldos() {
         for(Empleado empleado : empleados) {
-             System.out.println(empleado.getCuil() + "  " + empleado.apeYnom() + " ------------------------------- "+ empleado.sueldoNeto());   
+             System.out.println(empleado.getCuil() + "  " + empleado.apeYnom() + " ------------------------------- $"+ empleado.sueldoNeto());   
         }
     }
     
@@ -117,7 +117,7 @@ public class Banco
         System.out.println("Banco: "+ this.getNombre() + "    "+ " Sucursal: "+ this.getNroSucursal());
         System.out.println(this.getLocalidad().mostrar() + "\n");
         this.listarSueldos();
-        System.out.println("Total a pagar: ------------------------------------------------------"+ this.sueldosAPagar());
+        System.out.println("Total a pagar: ------------------------------------------------ $"+ this.sueldosAPagar());
     }
     
     public boolean agregarCuentaBancaria(CuentaBancaria p_cuentaBancaria) {
@@ -133,14 +133,11 @@ public class Banco
     }
     
     private void mostrarSaldoCero() {
-        int cantSaldoCero = 0;
-        System.out.println("Cuentas en Saldo Cero: "+ cantSaldoCero + "\n");
         System.out.println("-----------------------------------------------------------------\n");
         System.out.println("Titulares con Cuenta en Saldo Cero \n");
         System.out.println("-----------------------------------------------------------------\n");
         for(CuentaBancaria cuenta : cuentas) {
             if(cuenta.getSaldo() == 0) {
-                cantSaldoCero += 1;
                 System.out.println(cuenta.getTitular().getNroDni() + "            "+ cuenta.getTitular().apeYNom());
             }
         }
@@ -158,6 +155,7 @@ public class Banco
     }
     
     public void mostrarResumen() {
+        int cantSaldoCero = 0;
         System.out.println("Banco: "+ this.getNombre() + "    "+ " Sucursal: "+ this.getNroSucursal());
         System.out.println(this.getLocalidad().mostrar()    + "\n");
         System.out.println("*************************************************************************\n"); 
@@ -165,6 +163,12 @@ public class Banco
         System.out.println("*************************************************************************\n");
         System.out.println("Numero total de Cuentas Bancarias: "+ this.getCuentas().size());
         System.out.println("Cuentas activas: "+ this.cuentasSaldoActivo());
+        for(CuentaBancaria cuenta : cuentas) {
+            if(cuenta.getSaldo() == 0) {
+                cantSaldoCero += 1;
+            }
+        }
+        System.out.println("Cuentas en Saldo Cero: "+ cantSaldoCero + "\n");
         this.mostrarSaldoCero();
     }
 }

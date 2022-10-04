@@ -87,6 +87,7 @@ public class AplicacionBanco
                 anio = teclado.nextInt();
                 teclado.nextLine();
                 System.out.println("Ingrese los datos de la cuenta: ");
+                System.out.println("Ingrese el nro  de cuenta: ");
                 nroCuenta = teclado.nextInt();
                 teclado.nextLine();
                 System.out.println("Ingrese el saldo de la cuenta: ");
