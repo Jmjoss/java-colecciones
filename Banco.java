@@ -92,7 +92,11 @@ public class Banco
     }
     
     public boolean quitarEmpleado(Empleado p_empleado) {
-        return this.getEmpleados().remove(p_empleado);
+        if(this.getEmpleados().size() >= 1) {
+            return this.getEmpleados().remove(p_empleado);
+        }else {
+            return false;
+        } 
     }
     
     public double sueldosAPagar() {
@@ -121,7 +125,11 @@ public class Banco
     }
     
     public boolean quitarCuentaBancaria(CuentaBancaria p_cuentaBancaria) {
-        return this.getCuentas().remove(p_cuentaBancaria);
+        if(this.getCuentas().size() >= 1) {
+            return this.getCuentas().remove(p_cuentaBancaria);
+        }else {
+            return false;
+        }
     }
     
     private void mostrarSaldoCero() {

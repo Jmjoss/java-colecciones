@@ -49,7 +49,7 @@ public class TomaPedido
         Pedido pedidos = new Pedido(fechaHoy, cliente, productos);
         
         while(op != 0) {
-            System.out.println("\n1.Agregar un producto  \n2.listar pedido  \n3.Eliminar Producto");
+            System.out.println("\n1.Agregar un producto  \n2.listar pedido  \n3.Eliminar Producto \n0.Salir");
             op = teclado.nextInt();
             if(op == 1) {
                     while(sigue != 'N') {
@@ -78,6 +78,11 @@ public class TomaPedido
                 }
             }           
       
+            if(op == 2) {
+                pedidos.mostrarPedido();
+            } 
+        
+            
             if(op == 3) {
                 sigue = 'S';
                 while(sigue != 'N') {
@@ -92,12 +97,7 @@ public class TomaPedido
                 sigue = (teclado.next()).charAt(0);
                 }
         
-            }  
-            
-            if(op == 2) {
-                pedidos.mostrarPedido();
             } 
-        
         }
     
     }
