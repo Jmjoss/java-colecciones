@@ -49,55 +49,55 @@ public class TomaPedido
         Pedido pedidos = new Pedido(fechaHoy, cliente, productos);
         
         while(op != 0) {
-            System.out.println("\n1.Agregar un producto  \n2.listar pedido  \n3.Eliminar Producto");
+            System.out.println("\n1.Agregar un producto  \n2.listar pedido  \n3.Eliminar Producto \n0.Salir");
             op = teclado.nextInt();
             if(op == 1) {
+                    sigue = 'S';
                     while(sigue != 'N') {
-                    System.out.println("Datos del Producto: ");
-                    System.out.println("Codigo: ");
-                    codigoProducto = teclado.nextInt();
-                    teclado.nextLine();
-                    System.out.println("Rubro: ");
-                    rubroProducto = teclado.nextLine();
-                    System.out.println("Descripcion: ");
-                    descripcionProducto = teclado.nextLine();
-                    System.out.println("Costo por unidad: ");
-                    costoProducto = teclado.nextDouble();
-                    teclado.nextLine();
-                    System.out.println("Ingrese la cantidad: ");
-                    cantidad = teclado.nextInt();
+                        System.out.println("Datos del Producto: ");
+                        System.out.println("Codigo: ");
+                        codigoProducto = teclado.nextInt();
+                        teclado.nextLine();
+                        System.out.println("Rubro: ");
+                        rubroProducto = teclado.nextLine();
+                        System.out.println("Descripcion: ");
+                        descripcionProducto = teclado.nextLine();
+                        System.out.println("Costo por unidad: ");
+                        costoProducto = teclado.nextDouble();
+                        teclado.nextLine();
+                        System.out.println("Ingrese la cantidad: ");
+                        cantidad = teclado.nextInt();
                     
-                    Producto producto = new Producto(codigoProducto, rubroProducto, descripcionProducto, costoProducto, lab);
-                    
-                    for(int i = 0; i < cantidad; i++) {
-                        pedidos.agregarProducto(producto);
-                    }   
-                    
-                    System.out.println("Desea agregar otro producto? S/N");
-                    sigue = (teclado.next()).charAt(0);
-                }
+                        Producto producto = new Producto(codigoProducto, rubroProducto, descripcionProducto, costoProducto, lab);
+                        
+                        for(int i = 0; i < cantidad; i++) {
+                            pedidos.agregarProducto(producto);
+                        }   
+                        
+                        System.out.println("Desea agregar otro producto? S/N");
+                        sigue = (teclado.next()).charAt(0);
+                    }
             }           
       
-            if(op == 3) {
-                sigue = 'S';
-                while(sigue != 'N') {
-                System.out.println("\nIngrese la posicion del elemento a eliminar");
-                index = teclado.nextInt();
-                teclado.nextLine();
-                
-                pedidos.quitarProducto(productos.get(index-1));
-                
-                pedidos.mostrarPedido();
-                System.out.println("\nDesea eliminar otro producto? S/N");
-                sigue = (teclado.next()).charAt(0);
-                }
-        
-            }  
-            
             if(op == 2) {
                 pedidos.mostrarPedido();
             } 
         
+            
+            if(op == 3) {
+                sigue = 'S';
+                while(sigue != 'N') {
+                    System.out.println("\nIngrese la posicion del elemento a eliminar");
+                    index = teclado.nextInt();
+                    teclado.nextLine();
+                    
+                    pedidos.quitarProducto(productos.get(index-1));
+                    
+                    pedidos.mostrarPedido();
+                    System.out.println("\nDesea eliminar otro producto? S/N");
+                    sigue = (teclado.next()).charAt(0);
+                    }
+            } 
         }
     
     }

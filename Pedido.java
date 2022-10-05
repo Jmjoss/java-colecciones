@@ -54,11 +54,26 @@ public class Pedido
         this.productos = p_productos;
     }
     
-    //metodos 
+    //metodos
+    /**
+     * metodo que permite ingresar un producto al arrayList
+     * @param un objeto de tipo Producto
+     * 
+     * @return true si el objeto se agrego al arrayList o false si no se agrego
+     *
+     */
     public boolean agregarProducto(Producto p_producto) {
         return this.productos.add(p_producto);
     }
     
+    
+    /**
+     * metodo que permite quitar un producto al arrayList
+     * @param un objeto de tipo Producto
+     * 
+     * @return true si el objeto se quito del arrayList o false si no se elimino
+     *
+     */
     public boolean quitarProducto(Producto p_producto) {
         if(this.getProductos().size() >= 1) {
             return this.productos.remove(p_producto);
@@ -67,6 +82,12 @@ public class Pedido
         }
     }
     
+    
+    /**
+     * metodo que suma todos los precios al contado de los productos 
+     * 
+     * @return total al contado
+     */
     public double totalAlContado() {
         double totalContado = 0;
         for(Producto producto : productos) {
@@ -75,6 +96,11 @@ public class Pedido
         return totalContado;
     }
     
+    /**
+     * metodo que suma todos los precios de lista de los productos 
+     * 
+     * @return total financiado
+     */
     public double totalFinanciado() {
         double financiado = 0;
         for(Producto producto : productos) {
@@ -83,6 +109,9 @@ public class Pedido
         return financiado;
     }
     
+    /**
+     * metodo imprime por pantalla los datos del pedido completo fecha, precio contado, precio lista, total
+     */
     public void mostrarPedido() {
         System.out.format("***** Detalle del pedido ****** Fecha: %te de %tB de %tY%n", this.getFecha(), this.getFecha(), this.getFecha());
         System.out.format("Producto    \tPrecio de Lista    \tPrecio de Contado \n");
