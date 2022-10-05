@@ -1,19 +1,20 @@
 
 /**
- * Write a description of class Comercio here.
+ * Clase Comercio que permite crear objetos de este tipo.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author jose candia 
+ * @version 
  */
 
 import java.util.*;
 
 public class Comercio
 {
+    //atributos
     private String nombre;
     private HashMap <Long, Empleado> empleados;
     
-    
+    //constructores
     public Comercio(String p_nombre) {
         this.setNombre(p_nombre);
         this.setEmpleados(new HashMap <Long, Empleado> ());
@@ -45,26 +46,58 @@ public class Comercio
     
     //metodos
     
+    /**
+     * metodo que permite dar de alta un empleado
+     * 
+     * @param objeto de tipo Empleado
+     */
     public void altaEmpleado(Empleado p_empleado) {
         this.getEmpleados().put(new Long(p_empleado.getCuil()), p_empleado);
     }
     
+    /**
+     * metodo que da de baja un empleado
+     * @return objeto de tipo Empleado
+     * @param objeto de tipo Empleado
+     */
     public Empleado bajaEmpleado(long p_cuil) {
         return this.getEmpleados().remove(new Long(p_cuil));
     }
     
+    
+    /**
+     * metodo que cuenta la cantidad de empleados
+     * 
+     * @return cantidad de empleados
+     */
     public int cantDeEmpleados() {
         return this.getEmpleados().size();
     }
     
+    
+    /**
+     * metodo que verifica con el cuil si es empleado
+     * @param cuil de la persona
+     * @return true si es empleado del comercio de lo contrario false
+     */
     public boolean esEmpleado(long p_cuil) {
         return this.getEmpleados().containsKey(new Long(p_cuil));
     }
     
+    /**
+     * metodo que busca un empleado
+     * @param cuil de la persona
+     * @return Objeto de tipo Empleado 
+     */
     public Empleado buscarEmpleado(long p_cuil) {
         return this.getEmpleados().get(new Long(p_cuil));
     }
     
+    /**
+     * metodo que imprime por pantalla el sueldo neto de un empleado
+     * 
+     * @param cuil de la persona
+     */
     public void sueldoNeto(long p_cuil) {
         Empleado aux = this.buscarEmpleado(p_cuil);
         if(aux == null) {
@@ -74,6 +107,11 @@ public class Comercio
         }
     }
     
+    
+    /**
+     * metodo que imprime por pantalla la nomina de empleados
+     *
+     */
     public void nomina() {
         System.out.println("***Nomina de empleados de "+ this.getNombre() + " ****\n");
         for(Map.Entry <Long, Empleado> empleado : empleados.entrySet()) {
