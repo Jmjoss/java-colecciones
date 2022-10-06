@@ -103,7 +103,7 @@ public class Comercio
         if(aux == null) {
             System.out.println("El empleado no se encuentra");   
         }else {
-            System.out.println("El sueldo neto es: "+ aux.sueldoNeto());
+            System.out.println("El sueldo neto es: $"+ aux.sueldoNeto());
         }
     }
     
@@ -115,7 +115,7 @@ public class Comercio
     public void nomina() {
         System.out.println("***Nomina de empleados de "+ this.getNombre() + " ****\n");
         for(Map.Entry <Long, Empleado> empleado : empleados.entrySet()) {
-            System.out.println(empleado.getValue().getCuil() + "  "+ empleado.getValue().apeYnom() + "------"+ empleado.getValue().sueldoNeto());
+            System.out.println(empleado.getValue().getCuil() + "  "+ empleado.getValue().apeYnom() + "------ $"+ empleado.getValue().sueldoNeto());
         }
     }
 }

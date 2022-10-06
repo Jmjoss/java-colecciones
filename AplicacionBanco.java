@@ -103,26 +103,40 @@ public class AplicacionBanco
         } 
 
         if(op == 3) {
-            banco.mostrar();
+            if(banco.getEmpleados().isEmpty()) {
+                    System.out.println("Todavia no existen empleados en el banco");
+                }else {
+                    banco.mostrar();
+            } 
         } 
             
-        if(op == 4) {
-            banco.mostrarResumen();
+        if(op == 4) { 
+            if(banco.getEmpleados().isEmpty()) {
+                    System.out.println("Todavia no existen cuentas en el banco");
+                }else {
+                    banco.mostrarResumen();
+            }
         }
             
         if(op == 5) {
             sigue = 'S';
             while(sigue != 'N') {
-                System.out.println("\nIngrese la posicion del empleado a eliminar: ");
-                index = teclado.nextInt();
-                teclado.nextLine();
-                   
-                banco.quitarEmpleado(empleados.get(index-1));
+                if(banco.getEmpleados().isEmpty()) {
+                    System.out.println("Todavia no existen empleados en el banco");
+                    break;
+                }else {
+                    System.out.println("\nIngrese la posicion del empleado a eliminar: ");
+                    index = teclado.nextInt();
+                    teclado.nextLine();
+                    banco.quitarEmpleado(empleados.get(index-1));
                     
-                banco.mostrar();
+                    banco.mostrar();
+                    
+                    System.out.println("\nDesea eliminar otro empleado? S/N");
+                    sigue = (teclado.next()).charAt(0);
+                }
                 
-                System.out.println("\nDesea eliminar otro empleado? S/N");
-                sigue = (teclado.next()).charAt(0);
+                
             }
         }
         if(op == 6) {

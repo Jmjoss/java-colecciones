@@ -80,23 +80,31 @@ public class TomaPedido
             }           
       
             if(op == 2) {
-                pedidos.mostrarPedido();
+                if(pedidos.getProductos().isEmpty()) {
+                    System.out.println("Todavia no existen productos en el pedido");
+                }else { 
+                    pedidos.mostrarPedido();
+                }
             } 
         
             
             if(op == 3) {
                 sigue = 'S';
                 while(sigue != 'N') {
-                    System.out.println("\nIngrese la posicion del elemento a eliminar");
-                    index = teclado.nextInt();
-                    teclado.nextLine();
-                    
-                    pedidos.quitarProducto(productos.get(index-1));
-                    
-                    pedidos.mostrarPedido();
-                    System.out.println("\nDesea eliminar otro producto? S/N");
-                    sigue = (teclado.next()).charAt(0);
+                    if(pedidos.getProductos().isEmpty()) {
+                        System.out.println("Todavia no existen productos en el pedido");
+                        break;
+                    }else {
+                        System.out.println("\nIngrese la posicion del elemento a eliminar");
+                        index = teclado.nextInt();
+                        teclado.nextLine();
+                        
+                        pedidos.quitarProducto(productos.get(index-1));
+                        pedidos.mostrarPedido();
+                        System.out.println("\nDesea eliminar otro producto? S/N");
+                        sigue = (teclado.next()).charAt(0);
                     }
+                }
             } 
         }
     

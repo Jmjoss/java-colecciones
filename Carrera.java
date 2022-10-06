@@ -32,6 +32,7 @@ public class Carrera
             teclado.nextLine();
             
             if(op == 1) {
+                sigue = 'S';
                 while(sigue != 'N') {
                     System.out.println("Ingrese los datos del alumno: ");
                     System.out.println("Ingrese el lu: ");

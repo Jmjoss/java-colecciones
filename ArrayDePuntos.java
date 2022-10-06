@@ -1,6 +1,6 @@
 
 /**
- * Clase ArrayDePuntos, ejecutable que crea un array de tipo Puntos.
+ * Clase ArrayDePuntos ejecutable que crea un array de tipo Puntos.
  * 
  * @author jose candia
  * @version 
