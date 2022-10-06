@@ -33,6 +33,7 @@ public class GestionComercio
             teclado.nextLine();
             
             if(op == 1) {
+                sigue = 'S';
                 while(sigue != 'N') {
                     System.out.println("Ingrese los datos del empleado: ");
                     System.out.println("Ingrese el cuil: ");
