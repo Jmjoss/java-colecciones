@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Carrera here.
+ * Clase ejecutable Carrera.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author jose candia
+ * @version 
  */
 
 import java.util.*;
@@ -27,7 +27,7 @@ public class Carrera
         while(op != 0) {
             System.out.println("\n");
             System.out.println("Ingrese la operacion que desea realizar: ");
-            System.out.println("1.Inscribir un alumno   \n2.Buscar un alumno  \n3.Eliminar alumno \n4.Promedio de alumno \n5.Mostrar inscriptos \n0.Salir ");
+            System.out.println("1.Inscribir un alumno   \n2.Esta inscripto  \n3.Eliminar alumno \n4.Promedio de alumno \n5.Mostrar inscriptos \n6.Buscar alumno \n0.Salir ");
             op = teclado.nextInt();
             teclado.nextLine();
             
@@ -80,9 +80,12 @@ public class Carrera
                     System.out.println("Ingrese el lu del alumno: ");    
                     lu = teclado.nextInt();
                     
-                    curso.quitarAlumno(lu);
-                    curso.mostrarInscriptos();
-                    
+                    if(curso.estaInscripto(lu)) {
+                        curso.quitarAlumno(lu);
+                        curso.mostrarInscriptos();
+                    }else {
+                        System.out.println("El alumno no esta inscripto");
+                    }
                     
                     System.out.println("Desea eliminar otro alumno? S/N");
                     sigue = (teclado.next()).charAt(0);
@@ -94,15 +97,39 @@ public class Carrera
                     System.out.println("Ingrese el lu del alumno: ");    
                     lu = teclado.nextInt();
                     
-                    curso.imprimirPromedioDelAlumno(lu);
-                    
+                    if(curso.estaInscripto(lu)) {
+                        curso.imprimirPromedioDelAlumno(lu);
+                    }else {
+                        System.out.println("El alumno no esta inscripto");
+                    }
                     
                     System.out.println("Desea Buscar otro alumno? S/N");
                     sigue = (teclado.next()).charAt(0);
                     System.out.println("\n");
                 }
             }else if(op == 5) {
-                curso.mostrarInscriptos();
+                if(curso.getAlumnos().isEmpty()) {
+                    System.out.println("Todavia no existen alumnos inscriptos");
+                }else {
+                    curso.mostrarInscriptos();
+                }   
+            }else if(op == 6) {
+                sigue = 'S';
+                while(sigue != 'N') {
+                    System.out.println("Ingrese el lu del alumno");
+                    lu = teclado.nextInt();
+                    teclado.nextLine();
+                    
+                    if(curso.estaInscripto(lu)) {
+                        Alumno alumno = curso.buscarAlumno(lu);
+                        alumno.mostrar();
+                    }else {
+                        System.out.println("El alumno no esta inscripto");
+                    }
+                    System.out.println("Desea Buscar otro alumno? S/N");
+                    sigue = (teclado.next()).charAt(0);
+                    System.out.println("\n");
+                }
             }
         }
     }

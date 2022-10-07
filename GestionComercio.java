@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class GestionComercio here.
+ * Clase ejecutable GestionComercio.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author jose candia
+ * @version 
  */
 
 import java.util.*;
@@ -106,7 +106,11 @@ public class GestionComercio
                     System.out.println("\n");
                 }
             }else if(op == 5) {
-                comercio.nomina();
+                if(comercio.getEmpleados().isEmpty()) {
+                    System.out.println("Todavia no existen empleados registrados");
+                }else {
+                    comercio.nomina();
+                }      
             }else if(op == 6) {
                 sigue = 'S';
                 while(sigue != 'N') {
@@ -114,9 +118,12 @@ public class GestionComercio
                     cuil = teclado.nextLong();
                     
                     Empleado empleado = comercio.buscarEmpleado(cuil);
-                    
-                    empleado.mostrar();
-                    
+                    if(empleado == null) {
+                        System.out.println("El empleado no se encuentra");
+                    }else {
+                        empleado.mostrar();
+                    }    
+                      
                     System.out.println("Desea buscar otro empleado? S/N");
                     sigue = (teclado.next()).charAt(0);
                     System.out.println("\n");

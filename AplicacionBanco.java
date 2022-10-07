@@ -1,10 +1,10 @@
 
 /**
- * Write a description of class AplicacionBanco here.
+ * Clase ejecutable AplicacionBanco
  * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+ * @author jose candia
+ * @version 
+*/
 import java.util.*;
 
 public class AplicacionBanco
@@ -111,7 +111,7 @@ public class AplicacionBanco
         } 
             
         if(op == 4) { 
-            if(banco.getEmpleados().isEmpty()) {
+            if(banco.getCuentas().isEmpty()) {
                     System.out.println("Todavia no existen cuentas en el banco");
                 }else {
                     banco.mostrarResumen();
@@ -128,30 +128,39 @@ public class AplicacionBanco
                     System.out.println("\nIngrese la posicion del empleado a eliminar: ");
                     index = teclado.nextInt();
                     teclado.nextLine();
-                    banco.quitarEmpleado(empleados.get(index-1));
                     
-                    banco.mostrar();
-                    
+                    if(index > 0 && index <= banco.getEmpleados().size()) {
+                        banco.quitarEmpleado(empleados.get(index-1));
+                        banco.mostrar();
+                    }else {
+                        System.out.println("Posicion no existente");
+                    }    
                     System.out.println("\nDesea eliminar otro empleado? S/N");
                     sigue = (teclado.next()).charAt(0);
-                }
-                
-                
+                }  
             }
         }
         if(op == 6) {
             sigue = 'S';
-            while(sigue != 'N') {
-                System.out.println("\nIngrese la posicion de la cuenta a eliminar");
-                index = teclado.nextInt();
-                teclado.nextLine();
-                
-                banco.quitarCuentaBancaria(cuentas.get(index-1));
-                  
-                banco.mostrarResumen();
-                
-                System.out.println("\nDesea eliminar otra cuenta? S/N");
-                sigue = (teclado.next()).charAt(0);
+            while(sigue != 'N') {     
+                if(banco.getCuentas().isEmpty()) {
+                    System.out.println("Todavia no existen cuentas en el banco");
+                    break;
+                }else {
+                    System.out.println("\nIngrese la posicion de la cuenta a eliminar");
+                    index = teclado.nextInt();
+                    teclado.nextLine();
+                    
+                    if(index > 0 && index <= banco.getCuentas().size()) {
+                        banco.quitarCuentaBancaria(cuentas.get(index-1));
+                        banco.mostrarResumen();
+                    }else {
+                        System.out.println("Posicion no existente");
+                    }    
+                    
+                    System.out.println("\nDesea eliminar otra cuenta? S/N");
+                    sigue = (teclado.next()).charAt(0);
+                    } 
                 }
             }
         }   

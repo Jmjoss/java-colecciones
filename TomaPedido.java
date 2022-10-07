@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class TomaPedido here.
+ *Clase ejecutable TomaPedido .
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author jose candia
+ * @version 
  */
 import java.util.*;
 
@@ -99,8 +99,13 @@ public class TomaPedido
                         index = teclado.nextInt();
                         teclado.nextLine();
                         
-                        pedidos.quitarProducto(productos.get(index-1));
-                        pedidos.mostrarPedido();
+                        if(index > 0 && index <= pedidos.getProductos().size()) {
+                            pedidos.quitarProducto(productos.get(index-1));
+                            pedidos.mostrarPedido();
+                        }else {
+                            System.out.println("Posicion no valida");
+                        }
+                                           
                         System.out.println("\nDesea eliminar otro producto? S/N");
                         sigue = (teclado.next()).charAt(0);
                     }
